@@ -1,9 +1,26 @@
 import { BoardCellValue } from '../../types';
-import { getCellColour } from './lib/getCellColour';
+import { getCellBackground } from './lib/getCellBackground';
 
-export const BoardCell = ({ value }: { value: BoardCellValue }) => {
-  const cellColour = getCellColour(value);
+type Props = {
+  row: number,
+  column: number,
+  value: BoardCellValue,
+  handleClick: (row: number, column: number, currentValue: BoardCellValue) => void,
+}
+
+export const BoardCell = ({ value, row, column, handleClick }: Props) => {
+  const cellBackground = getCellBackground(value);
+
+  const onClick = () => {
+    handleClick(row, column, value);
+  }
+
+  console.log('cellBackground', cellBackground);
+
   return (
-    <div className={`w-24 h-24 border-slate-300 border-2 bg-${cellColour}`}></div>
+    <div
+      className={cellBackground}
+      onClick={onClick}
+    ></div>
   )
 };
