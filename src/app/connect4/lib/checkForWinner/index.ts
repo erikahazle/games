@@ -1,3 +1,4 @@
+import { DEFAULT_WINNING_MATCH_NUMBER } from '../../constants';
 import { Board, NextMoveValue } from '../../types';
 
 function hasMatchInDirection(
@@ -41,7 +42,7 @@ function hasMatchInDirection(
 };
 
 export function checkForWinner(
-  matchNumber: number = 4,
+  matchNumber: number = DEFAULT_WINNING_MATCH_NUMBER,
   board: Board,
   nextMoveValue: NextMoveValue,
   nextMoveRow: number,

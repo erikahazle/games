@@ -1,8 +1,9 @@
 import { checkForWinner } from '.';
+import { DEFAULT_WINNING_MATCH_NUMBER } from '../../constants';
 import { BoardCellValue, Board } from '../../types';
 
 describe('checkForWinner()', () => {
-  const matchNumber = 4;
+  const matchNumber = DEFAULT_WINNING_MATCH_NUMBER;
 
   describe('when there is no winning match', () => {
     it('should return false', () => {
